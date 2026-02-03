@@ -12,10 +12,6 @@
     "target": "ES2023",
     "esModuleInterop": true,
     "ignoreDeprecations": "6.0",
-    "module": "nodenext",
-    "target": "esnext",
-    "moduleResolution": "bundler",
-    "esModuleInterop": true,
     "types": [],
     // For nodejs:
     // "lib": ["esnext"],
