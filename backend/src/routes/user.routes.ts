@@ -1,10 +1,15 @@
 import { Router } from "express";
-
+import { authMiddleware } from "../middlewares/auth.middleware";
+import { profile } from "../controllers/user.controller";
 import prisma from "../config/prisma";
 
-const userRouter = Router()
+const userRouter = Router();
 
-userRouter.post("/users/sign-up",async(req,res)=>{
+userRouter.get("/profile", authMiddleware, profile);
+
+
+
+ userRouter.post("/sign-up",async(req,res)=>{
     const user =await prisma.user.create({
         data:req.body
     })

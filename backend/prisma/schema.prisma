@@ -16,13 +16,13 @@ datasource db {
 
 model User {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  firstName  String
+  firstName  String?
   middleName String?
-  lastName   String
+  lastName   String?
   email      String   @unique
   password   String
   isActive   Boolean  @default(true)
-  wallet     Wallet[]
+  wallets     Wallet[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 }

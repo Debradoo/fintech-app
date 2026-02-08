@@ -5,7 +5,7 @@ import { generateToken } from "../utils/jwt";
 
 export const signup = async (req: Request, res: Response) => {
   try {
-    const { firstName, middleName, lastName, email, password } = req.body;
+    const { firstName, middleName, lastName, email, password, } = req.body;
 
     const existingUser = await prisma.user.findUnique({
       where: { email },
