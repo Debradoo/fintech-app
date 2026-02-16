@@ -3,6 +3,8 @@ import userRouter from "./routes/user.routes";
 import authRouter from "./routes/auth.routes";
 import cors from "cors";
 import aiRouter from "./routes/ai.route";
+import transactionRouter from "./routes/transaction.route";
+import walletRouter from "./routes/wallet.route";
 
 const app = express();
 
@@ -28,5 +30,8 @@ app.get("/", (req, res)=>{
 app.use("/api/auth", authRouter)
 app.use("/api/user", userRouter)
 app.use("/api/ai", aiRouter)
+app.use("/api/transaction", transactionRouter)
+app.use("/api/wallet", walletRouter)
+
 
 export default app;
