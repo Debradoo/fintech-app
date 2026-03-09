@@ -16,4 +16,22 @@ export const generateAIResponse = async(prompt:string) => {
 
     });
     return completion.choices[0]?.message.content;
+};
+
+export async function generateAIInsight(data:any){
+    const prompt = `User financial summary:
+    total spending:${data.total}
+    Top catergory: ${data.topCategory}
+    predicted spending : ${data.healthScore}/100
+    
+    Give financial advice and budgeting tips.`
+    const response = openai.chat.completions.create({
+        model:"gpt-4.1-mini",
+        messages:[{
+            role:"system",content:"You are a proffessional FinTech advisor."
+        },{
+            role:"user", content: prompt
+        }]
+    })
+    return (await response).choices[0]?.message.content
 }
